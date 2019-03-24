@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="Container" type="id"/>
+
+    <item name="TaskColorLine" type="id"/>
+    <item name="TaskContent" type="id"/>
+    <item name="TaskImportnace" type="id"/>
+    <item name="TaskDeadline" type="id"/>
+    <item name="TaskDelete" type="id"/>
+    <item name="TaskEdit" type="id"/>
+</resources>

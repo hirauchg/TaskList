@@ -1,3 +1,21 @@
 <resources>
-    <string name="app_name">TaskList</string>
+
+    <!-- Common -->
+    <string name="app_name">タスク管理</string>
+    <string name="deadline_format">yy年MM月dd日</string>
+    <string-array name="importance_list">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+    </string-array>
+
+    <!-- Main -->
+    <string name="main_menu_add">追加</string>
+    <string name="main_menu_setting">設定</string>
+    <string name="main_importance">重要度：%1$s</string>
+    <string name="main_deadline">期限：%1$s</string>
+    <string name="main_dialog_delete">%1$sを削除しますか？</string>
+
 </resources>

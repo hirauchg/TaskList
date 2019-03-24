@@ -3,4 +3,10 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="importanceA">#FF0000</color>
+    <color name="importanceB">#FFA500</color>
+    <color name="importanceC">#FFFF00</color>
+    <color name="importanceD">#AAFF00</color>
+    <color name="importanceE">#DDDDDD</color>
 </resources>
