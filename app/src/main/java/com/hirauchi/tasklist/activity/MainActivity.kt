@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-    // メニュー選択時の処理を実装
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.menu_add -> Log.d("MainActivity", "Add") // TODO

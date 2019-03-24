@@ -7,14 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.hirauchi.tasklist.adapter.TaskRecyclerViewAdapter
-import com.hirauchi.tasklist.model.Task
+import com.hirauchi.tasklist.controller.TaskController
 import com.hirauchi.tasklist.ui.MainFragmentUI
 import org.jetbrains.anko.AnkoContext
 
-class MainFragment : Fragment() {
+class MainFragment : Fragment(), TaskRecyclerViewAdapter.TaskListener {
 
     lateinit var mContext: Context
     lateinit var mUI: MainFragmentUI
+    lateinit var mAdapter: TaskRecyclerViewAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mContext = inflater.context
@@ -25,8 +26,22 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val task = Task(id = 0, content = "タスクの内容が入ります。", importance = "A", deadline = System.currentTimeMillis())
-        val mTaskList = arrayListOf(task, task, task, task, task, task, task, task, task, task)
-        mUI.mRecyclerView.adapter = TaskRecyclerViewAdapter(mContext, mTaskList)
+        mAdapter = TaskRecyclerViewAdapter(mContext, this)
+        mAdapter.setTaskList(TaskController(mContext).getTaskList())
+        mUI.mRecyclerView.adapter = mAdapter
+    }
+
+    private fun reloadTaskList() {
+        mAdapter.setTaskList(TaskController(mContext).getTaskList())
+        mAdapter.notifyDataSetChanged()
+    }
+
+    override fun onDeleteTask(id: Int) {
+        TaskController(mContext).deleteTask(id)
+        reloadTaskList()
+    }
+
+    override fun onEditTask(id: Int) {
+        // TODO
     }
 }

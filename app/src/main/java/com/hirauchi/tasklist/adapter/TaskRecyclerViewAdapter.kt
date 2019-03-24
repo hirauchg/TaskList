@@ -7,7 +7,6 @@ import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import org.jetbrains.anko.AnkoContext
@@ -18,7 +17,18 @@ import com.hirauchi.tasklist.model.Task
 import com.hirauchi.tasklist.ui.TaskRecyclerViewAdapterUI
 import org.jetbrains.anko.backgroundColor
 
-class TaskRecyclerViewAdapter(val mContext: Context, private var mTaskList: List<Task>): RecyclerView.Adapter<TaskRecyclerViewAdapter.ViewHolder>() {
+class TaskRecyclerViewAdapter(val mContext: Context, val mListener: TaskListener): RecyclerView.Adapter<TaskRecyclerViewAdapter.ViewHolder>() {
+
+    interface TaskListener {
+        fun onDeleteTask(id: Int)
+        fun onEditTask(id: Int)
+    }
+
+    lateinit var mTaskList: List<Task>
+
+    fun setTaskList(taskList: List<Task>) {
+        mTaskList = taskList
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(TaskRecyclerViewAdapterUI().createView(AnkoContext.create(parent.context, parent)))
@@ -40,11 +50,11 @@ class TaskRecyclerViewAdapter(val mContext: Context, private var mTaskList: List
                 SimpleDateFormat(mContext.getString(R.string.deadline_format)).format(Date(item.deadline)))
 
         holder.delete.setOnClickListener {
-            Log.d("TaskRecyclerViewAdapter", "delete")
+            mListener.onDeleteTask(item.id)
         }
 
         holder.edit.setOnClickListener {
-            Log.d("TaskRecyclerViewAdapter", "edit")
+            mListener.onEditTask(item.id)
         }
     }
 
