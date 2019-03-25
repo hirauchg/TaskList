@@ -1,24 +1,25 @@
 package com.hirauchi.tasklist.fragment
 
 import android.app.Fragment
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.hirauchi.tasklist.R
 import com.hirauchi.tasklist.adapter.TaskRecyclerViewAdapter
 import com.hirauchi.tasklist.controller.TaskController
 import com.hirauchi.tasklist.ui.MainFragmentUI
 import org.jetbrains.anko.AnkoContext
+import org.jetbrains.anko.alert
+import org.jetbrains.anko.yesButton
 
 class MainFragment : Fragment(), TaskRecyclerViewAdapter.TaskListener {
 
-    lateinit var mContext: Context
     lateinit var mUI: MainFragmentUI
     lateinit var mAdapter: TaskRecyclerViewAdapter
+    lateinit var mTaskController: TaskController
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        mContext = inflater.context
         mUI = MainFragmentUI()
         return mUI.createView(AnkoContext.create(inflater.context, this, false))
     }
@@ -26,19 +27,27 @@ class MainFragment : Fragment(), TaskRecyclerViewAdapter.TaskListener {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mAdapter = TaskRecyclerViewAdapter(mContext, this)
-        mAdapter.setTaskList(TaskController(mContext).getTaskList())
+        mTaskController = TaskController(activity)
+
+        mAdapter = TaskRecyclerViewAdapter(activity, this)
+        mAdapter.setTaskList(mTaskController.getTaskList())
         mUI.mRecyclerView.adapter = mAdapter
     }
 
     fun reloadTaskList() {
-        mAdapter.setTaskList(TaskController(mContext).getTaskList())
+        mAdapter.setTaskList(mTaskController.getTaskList())
         mAdapter.notifyDataSetChanged()
     }
 
     override fun onDeleteTask(id: Int) {
-        TaskController(mContext).deleteTask(id)
-        reloadTaskList()
+        val content = mTaskController.getTask(id).content
+        alert {
+            message = activity.getString(R.string.main_dialog_delete, content)
+            yesButton {
+                mTaskController.deleteTask(id)
+                reloadTaskList()
+            }
+        }.show()
     }
 
     override fun onEditTask(id: Int) {

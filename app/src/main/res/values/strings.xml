@@ -16,7 +16,7 @@
     <string name="main_menu_setting">設定</string>
     <string name="main_importance">重要度：%1$s</string>
     <string name="main_deadline">期限：%1$s</string>
-    <string name="main_dialog_delete">%1$sを削除しますか？</string>
+    <string name="main_dialog_delete">%1$s を削除しますか？</string>
 
     <!-- Add -->
     <string name="add_title">タスクの追加</string>
