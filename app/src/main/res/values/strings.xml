@@ -18,4 +18,13 @@
     <string name="main_deadline">期限：%1$s</string>
     <string name="main_dialog_delete">%1$sを削除しますか？</string>
 
+    <!-- Add -->
+    <string name="add_title">タスクの追加</string>
+    <string name="add_content_title">内容</string>
+    <string name="add_importance_title">重要度</string>
+    <string name="add_deadline_title">期限</string>
+    <string name="add_deadline_message">期限を設定する</string>
+    <string name="add_button">追加</string>
+    <string name="add_dialog_content_empty">タスクの内容を入力してください。</string>
+
 </resources>

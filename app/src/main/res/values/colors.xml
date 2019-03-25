@@ -9,4 +9,6 @@
     <color name="importanceC">#FFFF00</color>
     <color name="importanceD">#AAFF00</color>
     <color name="importanceE">#DDDDDD</color>
+
+    <color name="textColorPrimary">#000000</color>
 </resources>

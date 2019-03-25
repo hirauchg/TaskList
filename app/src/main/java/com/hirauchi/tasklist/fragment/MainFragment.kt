@@ -31,7 +31,7 @@ class MainFragment : Fragment(), TaskRecyclerViewAdapter.TaskListener {
         mUI.mRecyclerView.adapter = mAdapter
     }
 
-    private fun reloadTaskList() {
+    fun reloadTaskList() {
         mAdapter.setTaskList(TaskController(mContext).getTaskList())
         mAdapter.notifyDataSetChanged()
     }
