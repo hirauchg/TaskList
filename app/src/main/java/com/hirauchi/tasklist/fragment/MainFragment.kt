@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.hirauchi.tasklist.R
+import com.hirauchi.tasklist.activity.MainActivity
 import com.hirauchi.tasklist.adapter.TaskRecyclerViewAdapter
 import com.hirauchi.tasklist.controller.TaskController
 import com.hirauchi.tasklist.ui.MainFragmentUI
@@ -51,6 +52,6 @@ class MainFragment : Fragment(), TaskRecyclerViewAdapter.TaskListener {
     }
 
     override fun onEditTask(id: Int) {
-        // TODO
+        (activity as MainActivity).editTask(id)
     }
 }

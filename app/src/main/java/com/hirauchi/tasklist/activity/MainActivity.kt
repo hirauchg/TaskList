@@ -14,6 +14,10 @@ import org.jetbrains.anko.startActivityForResult
 
 class MainActivity : AppCompatActivity() {
 
+    companion object {
+        const val KEY_ID = "key_id"
+    }
+
     val mMainFragment = MainFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
-            R.id.menu_add -> startActivityForResult<AddTaskActivity>(requestCode = 1)
+            R.id.menu_add -> startActivityForResult<AddTaskActivity>(1)
             R.id.menu_setting -> Log.d("MainActivity", "Setting") // TODO
         }
         return super.onOptionsItemSelected(item)
@@ -39,5 +43,9 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         mMainFragment.reloadTaskList()
+    }
+
+    fun editTask(id: Int) {
+        startActivityForResult<AddTaskActivity>(1, KEY_ID to id)
     }
 }
