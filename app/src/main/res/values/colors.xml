@@ -10,5 +10,11 @@
     <color name="importanceD">#AAFF00</color>
     <color name="importanceE">#DDDDDD</color>
 
+    <color name="deadlinePast">#000000</color>
+    <color name="deadlineToday">#FF0000</color>
+    <color name="deadlineWeek">#FFFF00</color>
+    <color name="deadlineNone">#DDDDDD</color>
+
     <color name="textColorPrimary">#000000</color>
+    <color name="textColorSecondary">#777777</color>
 </resources>

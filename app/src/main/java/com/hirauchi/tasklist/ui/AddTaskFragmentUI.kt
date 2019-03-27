@@ -11,6 +11,7 @@ import android.widget.*
 import com.hirauchi.tasklist.fragment.AddTaskFragment
 import org.jetbrains.anko.*
 import com.hirauchi.tasklist.R
+
 import com.hirauchi.tasklist.model.Task
 import java.text.SimpleDateFormat
 import java.util.*

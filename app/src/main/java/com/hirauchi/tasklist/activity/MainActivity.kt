@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.menu_add -> startActivityForResult<AddTaskActivity>(1)
-            R.id.menu_setting -> Log.d("MainActivity", "Setting") // TODO
+            R.id.menu_setting -> startActivityForResult<SettingActivity>(1)
         }
         return super.onOptionsItemSelected(item)
     }

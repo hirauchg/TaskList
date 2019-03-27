@@ -26,6 +26,19 @@
     <string name="add_deadline_message">期限を設定する</string>
     <string name="add_button">追加</string>
     <string name="add_dialog_content_empty">タスクの内容を入力してください。</string>
+    <string name="edit_title">タスクの編集</string>
     <string name="edit_button">編集</string>
 
+    <!-- Setting -->
+    <string name="setting_title">設定</string>
+    <string name="setting_row_title">タスクの表示順</string>
+    <string name="setting_row_default">登録順</string>
+    <string name="setting_row_importance">重要度順</string>
+    <string name="setting_row_deadline">期限順</string>
+    <string name="setting_color_title">タスクの色分け</string>
+    <string name="setting_color_default">色分けなし</string>
+    <string name="setting_color_importance">重要度</string>
+    <string name="setting_color_deadline">期限</string>
+    <string name="setting_color_importance_desk">A:赤色、B:橙色、C:黄色、D:黄緑色、E:灰色になります。</string>
+    <string name="setting_color_deadline_desk">今日中:赤色、今週中:黄色、未設定:灰色、過去:黒色になります。</string>
 </resources>
