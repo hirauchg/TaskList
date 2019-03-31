@@ -24,6 +24,12 @@ class TaskRecyclerViewAdapter(val mContext: Context, val mListener: TaskListener
         fun onEditTask(id: Int)
     }
 
+    companion object {
+        const val KEY_PREFERENCES = "key_Preferences"
+        const val KEY_PREF_ROW = "key_pref_row"
+        const val KEY_PREF_COLOR = "key_pref_color"
+    }
+
     lateinit var mTaskList: List<Task>
 
     fun setTaskList(taskList: List<Task>) {
@@ -42,12 +48,59 @@ class TaskRecyclerViewAdapter(val mContext: Context, val mListener: TaskListener
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = mTaskList.get(position)
 
-        holder.colorLine.backgroundColor = ContextCompat.getColor(mContext, R.color.importanceA)
+        val preferences = mContext.getSharedPreferences(KEY_PREFERENCES, Context.MODE_PRIVATE)
+        holder.colorLine.backgroundColor = when(preferences.getInt(KEY_PREF_COLOR, 0)) {
+            0 -> {
+                ContextCompat.getColor(mContext, R.color.white)
+            }
+            1 -> {
+                when(item.importance) {
+                    "A" -> ContextCompat.getColor(mContext, R.color.importanceA)
+                    "B" -> ContextCompat.getColor(mContext, R.color.importanceB)
+                    "C" -> ContextCompat.getColor(mContext, R.color.importanceC)
+                    "D" -> ContextCompat.getColor(mContext, R.color.importanceD)
+                    else -> ContextCompat.getColor(mContext, R.color.importanceE)
+                }
+            }
+            else -> {
+                val todayCalendar = Calendar.getInstance()
+                todayCalendar.set(Calendar.HOUR_OF_DAY, 0)
+                todayCalendar.set(Calendar.MINUTE, 0)
+                todayCalendar.set(Calendar.SECOND, 0)
+                todayCalendar.set(Calendar.MILLISECOND, 0)
+                val today = todayCalendar.time as Date
+                val deadlineDate = Date(item.deadline)
+                val deadlineCalendar = Calendar.getInstance()
+                deadlineCalendar.timeInMillis = item.deadline
+
+                when(deadlineDate.compareTo(today)) {
+                    -1 -> {
+                        if(item.deadline != 0L) {
+                            ContextCompat.getColor(mContext, R.color.deadlinePast)
+                        } else {
+                            ContextCompat.getColor(mContext, R.color.deadlineNone)
+                        }
+                    }
+                    0 -> ContextCompat.getColor(mContext, R.color.deadlineToday)
+                    else -> {
+                        if (todayCalendar.get(Calendar.DAY_OF_WEEK) > deadlineCalendar.get(Calendar.DAY_OF_WEEK)) {
+                            ContextCompat.getColor(mContext, R.color.deadlineWeek)
+                        } else {
+                            ContextCompat.getColor(mContext, R.color.deadlineOverWeek)
+                        }
+                    }
+                }
+            }
+        }
 
         holder.content.text = item.content
         holder.importance.text = mContext.getString(R.string.main_importance, item.importance)
-        holder.deadline.text = mContext.getString(R.string.main_deadline,
-                SimpleDateFormat(mContext.getString(R.string.deadline_format)).format(Date(item.deadline)))
+        if(item.deadline != 0L) {
+            holder.deadline.text = mContext.getString(R.string.main_deadline,
+                    SimpleDateFormat(mContext.getString(R.string.deadline_format)).format(Date(item.deadline)))
+        } else {
+            holder.deadline.text = mContext.getString(R.string.main_deadline, mContext.getString(R.string.main_deadline_none))
+        }
 
         holder.delete.setOnClickListener {
             mListener.onDeleteTask(item.id)

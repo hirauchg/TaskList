@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="white">#FFFFFF</color>
+
     <color name="importanceA">#FF0000</color>
     <color name="importanceB">#FFA500</color>
     <color name="importanceC">#FFFF00</color>
@@ -13,6 +15,7 @@
     <color name="deadlinePast">#000000</color>
     <color name="deadlineToday">#FF0000</color>
     <color name="deadlineWeek">#FFFF00</color>
+    <color name="deadlineOverWeek">#AAFF00</color>
     <color name="deadlineNone">#DDDDDD</color>
 
     <color name="textColorPrimary">#000000</color>

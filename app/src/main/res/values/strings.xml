@@ -16,6 +16,7 @@
     <string name="main_menu_setting">設定</string>
     <string name="main_importance">重要度：%1$s</string>
     <string name="main_deadline">期限：%1$s</string>
+    <string name="main_deadline_none">未設定</string>
     <string name="main_dialog_delete">%1$s を削除しますか？</string>
 
     <!-- Add / Edit -->
@@ -40,5 +41,5 @@
     <string name="setting_color_importance">重要度</string>
     <string name="setting_color_deadline">期限</string>
     <string name="setting_color_importance_desk">A:赤色、B:橙色、C:黄色、D:黄緑色、E:灰色になります。</string>
-    <string name="setting_color_deadline_desk">今日中:赤色、今週中:黄色、未設定:灰色、過去:黒色になります。</string>
+    <string name="setting_color_deadline_desk">期限超過:黒色、今日中:赤色、今週中:黄色、今週中以降:黄緑色、未設定:灰色になります。</string>
 </resources>

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.content.Context
 import android.support.v4.content.ContextCompat
+import android.text.format.DateUtils
 import android.view.Gravity
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
@@ -75,7 +76,8 @@ class AddTaskFragmentUI : AnkoComponent<AddTaskFragment> {
                             setOnClickListener {
                                 val calendar = Calendar.getInstance()
                                 DatePickerDialog(ctx, DatePickerDialog.OnDateSetListener { _, years, month, day ->
-                                    calendar.set(years, month, day)
+                                    calendar.set(years, month, day, 0, 0, 0)
+                                    calendar.set(Calendar.MILLISECOND, 0)
                                     mDeadlineTime = calendar.timeInMillis
                                     text = SimpleDateFormat(ctx.getString(R.string.deadline_format)).format(calendar.time)
                                 }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show()
