@@ -72,6 +72,8 @@ class TaskRecyclerViewAdapter(val mContext: Context, val mListener: TaskListener
                 val deadlineDate = Date(item.deadline)
                 val deadlineCalendar = Calendar.getInstance()
                 deadlineCalendar.timeInMillis = item.deadline
+                todayCalendar.add(Calendar.DATE, 7)
+                val weekAfterDate = todayCalendar.time as Date
 
                 when(deadlineDate.compareTo(today)) {
                     -1 -> {
@@ -83,7 +85,7 @@ class TaskRecyclerViewAdapter(val mContext: Context, val mListener: TaskListener
                     }
                     0 -> ContextCompat.getColor(mContext, R.color.deadlineToday)
                     else -> {
-                        if (todayCalendar.get(Calendar.DAY_OF_WEEK) > deadlineCalendar.get(Calendar.DAY_OF_WEEK)) {
+                        if (weekAfterDate.after(deadlineDate)) {
                             ContextCompat.getColor(mContext, R.color.deadlineWeek)
                         } else {
                             ContextCompat.getColor(mContext, R.color.deadlineOverWeek)

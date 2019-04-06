@@ -14,7 +14,7 @@
 
     <color name="deadlinePast">#000000</color>
     <color name="deadlineToday">#FF0000</color>
-    <color name="deadlineWeek">#FFFF00</color>
+    <color name="deadlineWeek">#FFA500</color>
     <color name="deadlineOverWeek">#AAFF00</color>
     <color name="deadlineNone">#DDDDDD</color>
 

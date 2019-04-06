@@ -41,5 +41,5 @@
     <string name="setting_color_importance">重要度</string>
     <string name="setting_color_deadline">期限</string>
     <string name="setting_color_importance_desk">A:赤色、B:橙色、C:黄色、D:黄緑色、E:灰色になります。</string>
-    <string name="setting_color_deadline_desk">期限超過:黒色、今日中:赤色、今週中:黄色、今週中以降:黄緑色、未設定:灰色になります。</string>
+    <string name="setting_color_deadline_desk">期限超過:黒色、今日:赤色、1週間:橙色、1週間以上:黄緑色、未設定:灰色になります。</string>
 </resources>
