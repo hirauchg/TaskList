@@ -12,7 +12,7 @@ class SettingFragmentUI : AnkoComponent<SettingFragment> {
 
     companion object {
         const val KEY_PREFERENCES = "key_Preferences"
-        const val KEY_PREF_ROW = "key_pref_row"
+        const val KEY_PREF_ORDER = "key_pref_order"
         const val KEY_PREF_COLOR = "key_pref_color"
     }
 
@@ -32,7 +32,7 @@ class SettingFragmentUI : AnkoComponent<SettingFragment> {
                 orientation = RadioGroup.HORIZONTAL
                 setOnCheckedChangeListener { group, checkedId ->
                     val editor = preferences.edit()
-                    editor.putInt(KEY_PREF_ROW, checkedId)
+                    editor.putInt(KEY_PREF_ORDER, checkedId)
                     editor.apply()
                 }
 
@@ -47,7 +47,7 @@ class SettingFragmentUI : AnkoComponent<SettingFragment> {
                     }
                 }
 
-                check(preferences.getInt(KEY_PREF_ROW, 0))
+                check(preferences.getInt(KEY_PREF_ORDER, 0))
             }.lparams {
                 bottomMargin = dip(28)
             }

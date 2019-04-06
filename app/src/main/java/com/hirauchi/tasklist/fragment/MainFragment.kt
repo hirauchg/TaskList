@@ -1,6 +1,7 @@
 package com.hirauchi.tasklist.fragment
 
 import android.app.Fragment
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,8 @@ import com.hirauchi.tasklist.activity.MainActivity
 import com.hirauchi.tasklist.adapter.TaskRecyclerViewAdapter
 import com.hirauchi.tasklist.controller.TaskController
 import com.hirauchi.tasklist.ui.MainFragmentUI
+import com.hirauchi.tasklist.ui.SettingFragmentUI.Companion.KEY_PREFERENCES
+import com.hirauchi.tasklist.ui.SettingFragmentUI.Companion.KEY_PREF_ORDER
 import org.jetbrains.anko.AnkoContext
 import org.jetbrains.anko.alert
 import org.jetbrains.anko.yesButton
@@ -29,14 +32,16 @@ class MainFragment : Fragment(), TaskRecyclerViewAdapter.TaskListener {
         super.onViewCreated(view, savedInstanceState)
 
         mTaskController = TaskController(activity)
-
         mAdapter = TaskRecyclerViewAdapter(activity, this)
-        mAdapter.setTaskList(mTaskController.getTaskList())
         mUI.mRecyclerView.adapter = mAdapter
+
+        loadTaskList()
     }
 
-    fun reloadTaskList() {
-        mAdapter.setTaskList(mTaskController.getTaskList())
+    fun loadTaskList() {
+        val preferences = activity.getSharedPreferences(KEY_PREFERENCES, Context.MODE_PRIVATE)
+        val taskList = mTaskController.getTaskList((preferences.getInt(KEY_PREF_ORDER, 0)))
+        mAdapter.setTaskList(taskList)
         mAdapter.notifyDataSetChanged()
     }
 
@@ -46,7 +51,7 @@ class MainFragment : Fragment(), TaskRecyclerViewAdapter.TaskListener {
             message = activity.getString(R.string.main_dialog_delete, content)
             yesButton {
                 mTaskController.deleteTask(id)
-                reloadTaskList()
+                loadTaskList()
             }
         }.show()
     }

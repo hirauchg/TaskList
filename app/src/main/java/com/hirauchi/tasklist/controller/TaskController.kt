@@ -3,19 +3,32 @@ package com.hirauchi.tasklist.controller
 import android.content.Context
 import com.hirauchi.tasklist.database.TaskDBHelper
 import com.hirauchi.tasklist.model.Task
-import org.jetbrains.anko.db.classParser
-import org.jetbrains.anko.db.insert
-import org.jetbrains.anko.db.select
-import org.jetbrains.anko.db.update
+import org.jetbrains.anko.db.*
 
 class TaskController(ctx: Context) {
 
     private val mDB = TaskDBHelper.getInstance(ctx)
 
-    fun getTaskList() : List<Task> {
+    fun getTaskList(order: Int) : List<Task> {
         lateinit var taskList : List<Task>
         mDB.use {
-            taskList = select(TaskDBHelper.TABLE_NAME).parseList(classParser())
+            taskList = when(order) {
+                0 -> select(TaskDBHelper.TABLE_NAME).orderBy(TaskDBHelper.CULM_ID, SqlOrderDirection.DESC).parseList(classParser())
+                1 -> select(TaskDBHelper.TABLE_NAME).orderBy(TaskDBHelper.CULM_IMPORTANCE).parseList(classParser())
+                else -> {
+                    val existDeadlineTaskList = select(TaskDBHelper.TABLE_NAME)
+                            .whereSimple(TaskDBHelper.CULM_DEADLINE + " != ?", "0")
+                            .orderBy(TaskDBHelper.CULM_DEADLINE).parseList(classParser<Task>())
+                    val noDeadlineTaskList = select(TaskDBHelper.TABLE_NAME)
+                            .whereSimple(TaskDBHelper.CULM_DEADLINE + " = ?", "0")
+                            .parseList(classParser<Task>())
+
+                    val _taskList: ArrayList<Task> = arrayListOf()
+                    _taskList.addAll(existDeadlineTaskList)
+                    _taskList.addAll(noDeadlineTaskList)
+                    _taskList
+                }
+            }
         }
         return taskList
     }

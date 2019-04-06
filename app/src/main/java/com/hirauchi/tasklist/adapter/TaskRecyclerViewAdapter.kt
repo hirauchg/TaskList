@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
@@ -14,6 +13,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 import com.hirauchi.tasklist.R
 import com.hirauchi.tasklist.model.Task
+import com.hirauchi.tasklist.ui.SettingFragmentUI.Companion.KEY_PREFERENCES
+import com.hirauchi.tasklist.ui.SettingFragmentUI.Companion.KEY_PREF_COLOR
 import com.hirauchi.tasklist.ui.TaskRecyclerViewAdapterUI
 import org.jetbrains.anko.backgroundColor
 
@@ -22,12 +23,6 @@ class TaskRecyclerViewAdapter(val mContext: Context, val mListener: TaskListener
     interface TaskListener {
         fun onDeleteTask(id: Int)
         fun onEditTask(id: Int)
-    }
-
-    companion object {
-        const val KEY_PREFERENCES = "key_Preferences"
-        const val KEY_PREF_ROW = "key_pref_row"
-        const val KEY_PREF_COLOR = "key_pref_color"
     }
 
     lateinit var mTaskList: List<Task>
