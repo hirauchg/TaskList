@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Common -->
+    <string name="app_name">Gestión de tareas</string>
+    <string name="deadline_format">yy/MM/dd</string>
+    <string-array name="importance_list">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+    </string-array>
+
+    <!-- Main -->
+    <string name="main_menu_add">Añadir</string>
+    <string name="main_menu_setting">Ajuste</string>
+    <string name="main_importance">Importancia：%1$s</string>
+    <string name="main_deadline">Fecha límite：%1$s</string>
+    <string name="main_deadline_none">No establecido</string>
+    <string name="main_dialog_delete">¿Quieres borrar el "%1$s"?</string>
+
+    <!-- Add / Edit -->
+    <string name="add_title">Agregar tarea</string>
+    <string name="add_content_title">Contenidos</string>
+    <string name="add_importance_title">Importancia</string>
+    <string name="add_deadline_title">Fecha límite</string>
+    <string name="add_deadline_message">Establecer una fecha límite</string>
+    <string name="add_button">Añadir</string>
+    <string name="add_dialog_content_empty">Por favor ingrese el contenido de la tarea.</string>
+    <string name="edit_title">Tarea de edición</string>
+    <string name="edit_button">Editar</string>
+
+    <!-- Setting -->
+    <string name="setting_title">Ajuste</string>
+    <string name="setting_row_title">Mostrar orden de tareas</string>
+    <string name="setting_row_default">Registro</string>
+    <string name="setting_row_importance">Importancia</string>
+    <string name="setting_row_deadline">Fecha límite</string>
+    <string name="setting_color_title">Codificación de colores de tareas</string>
+    <string name="setting_color_default">No establecido</string>
+    <string name="setting_color_importance">Importancia</string>
+    <string name="setting_color_deadline">Fecha límite</string>
+    <string name="setting_color_importance_desk">A: Rojo, B: Naranja, C: Amarillo, D: Verde amarillento, E: Gris.</string>
+    <string name="setting_color_deadline_desk">Plazo vencido: negro, hoy: rojo, 1 semana: naranja, 1 semana o más: verde amarillento, no establecido: gris.</string>
+</resources>

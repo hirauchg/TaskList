@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Common -->
+    <string name="app_name">任务管理</string>
+    <string name="deadline_format">yy/MM/dd</string>
+    <string-array name="importance_list">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+    </string-array>
+
+    <!-- Main -->
+    <string name="main_menu_add">加法</string>
+    <string name="main_menu_setting">设置</string>
+    <string name="main_importance">严重：%1$s</string>
+    <string name="main_deadline">截止日期：%1$s</string>
+    <string name="main_deadline_none">没有设定</string>
+    <string name="main_dialog_delete">你想删除"%1$s"吗？</string>
+
+    <!-- Add / Edit -->
+    <string name="add_title">添加任务</string>
+    <string name="add_content_title">内容</string>
+    <string name="add_importance_title">严重</string>
+    <string name="add_deadline_title">截止日期</string>
+    <string name="add_deadline_message">设定截止日期</string>
+    <string name="add_button">加法</string>
+    <string name="add_dialog_content_empty">请输入任务的内容</string>
+    <string name="edit_title">编辑任务</string>
+    <string name="edit_button">编辑</string>
+
+    <!-- Setting -->
+    <string name="setting_title">设置</string>
+    <string name="setting_row_title">显示任务的顺序</string>
+    <string name="setting_row_default">注册</string>
+    <string name="setting_row_importance">严重</string>
+    <string name="setting_row_deadline">截止日期</string>
+    <string name="setting_color_title">任务颜色编码</string>
+    <string name="setting_color_default">没有设定</string>
+    <string name="setting_color_importance">严重</string>
+    <string name="setting_color_deadline">截止日期</string>
+    <string name="setting_color_importance_desk">A：红色，B：橙色，C：黄色，D：黄绿色，E：灰色</string>
+    <string name="setting_color_deadline_desk">逾期：黑色，今天：红色，1周：橙色，1周或更长时间：黄绿色，未设置：灰色</string>
+</resources>

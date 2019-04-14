@@ -1,8 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <!-- Common -->
-    <string name="app_name">タスク管理</string>
-    <string name="deadline_format">yy年MM月dd日</string>
+    <string name="app_name">Task management</string>
+    <string name="deadline_format">yy/MM/dd</string>
     <string-array name="importance_list">
         <item>A</item>
         <item>B</item>
@@ -12,34 +13,34 @@
     </string-array>
 
     <!-- Main -->
-    <string name="main_menu_add">追加</string>
-    <string name="main_menu_setting">設定</string>
-    <string name="main_importance">重要度：%1$s</string>
-    <string name="main_deadline">期限：%1$s</string>
-    <string name="main_deadline_none">未設定</string>
-    <string name="main_dialog_delete">%1$s を削除しますか？</string>
+    <string name="main_menu_add">Add</string>
+    <string name="main_menu_setting">Settings</string>
+    <string name="main_importance">Importance：%1$s</string>
+    <string name="main_deadline">Deadline：%1$s</string>
+    <string name="main_deadline_none">Not set</string>
+    <string name="main_dialog_delete">Do you want to delete "%1$s"？</string>
 
     <!-- Add / Edit -->
-    <string name="add_title">タスクの追加</string>
-    <string name="add_content_title">内容</string>
-    <string name="add_importance_title">重要度</string>
-    <string name="add_deadline_title">期限</string>
-    <string name="add_deadline_message">期限を設定する</string>
-    <string name="add_button">追加</string>
-    <string name="add_dialog_content_empty">タスクの内容を入力してください。</string>
-    <string name="edit_title">タスクの編集</string>
-    <string name="edit_button">編集</string>
+    <string name="add_title">Add task</string>
+    <string name="add_content_title">Content</string>
+    <string name="add_importance_title">Importance</string>
+    <string name="add_deadline_title">Deadline</string>
+    <string name="add_deadline_message">Set a deadline</string>
+    <string name="add_button">Add</string>
+    <string name="add_dialog_content_empty">Please enter the content of the task.</string>
+    <string name="edit_title">Edit task</string>
+    <string name="edit_button">Edit</string>
 
     <!-- Setting -->
-    <string name="setting_title">設定</string>
-    <string name="setting_row_title">タスクの表示順</string>
-    <string name="setting_row_default">登録順</string>
-    <string name="setting_row_importance">重要度順</string>
-    <string name="setting_row_deadline">期限順</string>
-    <string name="setting_color_title">タスクの色分け</string>
-    <string name="setting_color_default">色分けなし</string>
-    <string name="setting_color_importance">重要度</string>
-    <string name="setting_color_deadline">期限</string>
-    <string name="setting_color_importance_desk">A:赤色、B:橙色、C:黄色、D:黄緑色、E:灰色になります。</string>
-    <string name="setting_color_deadline_desk">期限超過:黒色、今日:赤色、1週間:橙色、1週間以上:黄緑色、未設定:灰色になります。</string>
+    <string name="setting_title">Settings</string>
+    <string name="setting_row_title">Display order of tasks</string>
+    <string name="setting_row_default">Registration</string>
+    <string name="setting_row_importance">Importance</string>
+    <string name="setting_row_deadline">Deadline</string>
+    <string name="setting_color_title">Task color coding</string>
+    <string name="setting_color_default">Not set</string>
+    <string name="setting_color_importance">Importance</string>
+    <string name="setting_color_deadline">Deadline</string>
+    <string name="setting_color_importance_desk">A: Red, B: Orange, C: Yellow, D: Yellowish green, E: Gray.</string>
+    <string name="setting_color_deadline_desk">Overdue: black, today: red, 1 week: orange, 1 week or more: yellowish green, not set: gray.</string>
 </resources>

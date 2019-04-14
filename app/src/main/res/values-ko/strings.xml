@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Common -->
+    <string name="app_name">작업 관리</string>
+    <string name="deadline_format">yy/MM/dd</string>
+    <string-array name="importance_list">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+    </string-array>
+
+    <!-- Main -->
+    <string name="main_menu_add">추가</string>
+    <string name="main_menu_setting">설정</string>
+    <string name="main_importance">중요도：%1$s</string>
+    <string name="main_deadline">기간：%1$s</string>
+    <string name="main_deadline_none">미 설정</string>
+    <string name="main_dialog_delete">"%1$s"을 삭제 하시겠습니까?</string>
+
+    <!-- Add / Edit -->
+    <string name="add_title">작업 추가</string>
+    <string name="add_content_title">내용</string>
+    <string name="add_importance_title">중요도</string>
+    <string name="add_deadline_title">기간</string>
+    <string name="add_deadline_message">기한을 설정</string>
+    <string name="add_button">추가</string>
+    <string name="add_dialog_content_empty">작업 내용을 입력하십시오</string>
+    <string name="edit_title">작업 편집</string>
+    <string name="edit_button">편집</string>
+
+    <!-- Setting -->
+    <string name="setting_title">설정</string>
+    <string name="setting_row_title">작업 순서</string>
+    <string name="setting_row_default">등록</string>
+    <string name="setting_row_importance">중요도</string>
+    <string name="setting_row_deadline">기간</string>
+    <string name="setting_color_title">작업의 색</string>
+    <string name="setting_color_default">미 설정</string>
+    <string name="setting_color_importance">중요도</string>
+    <string name="setting_color_deadline">기간</string>
+    <string name="setting_color_importance_desk">A : 적색, B : 주황색 C : 노란색 D : 황록색 E : 회색입니다.</string>
+    <string name="setting_color_deadline_desk">기한 초과 : 흑색 오늘 : 적색, 1 주 : 주황색 1 주일 이상 : 황록색 구성되지 않은 : 회색입니다.</string>
+</resources>
