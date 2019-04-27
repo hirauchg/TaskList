@@ -126,7 +126,9 @@ class AddTaskFragmentUI : AnkoComponent<AddTaskFragment> {
             else -> 4
         }
         mImportance.setSelection(position)
-        mDeadline.text = SimpleDateFormat(mContext.getString(R.string.deadline_format)).format(task.deadline)
+        if (task.deadline != 0L) {
+            mDeadline.text = SimpleDateFormat(mContext.getString(R.string.deadline_format)).format(task.deadline)
+        }
         mDeadlineTime = task.deadline
         mAddButton.setText(R.string.edit_button)
     }

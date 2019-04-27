@@ -66,7 +66,7 @@ class SettingFragmentUI : AnkoComponent<SettingFragment> {
                     1 -> textResource = R.string.setting_color_importance_desk
                     2 -> textResource = R.string.setting_color_deadline_desk
                 }
-            }.lparams {
+            }.lparams(height = 20) {
                 bottomMargin = dip(16)
                 leftMargin = dip(10)
             }
